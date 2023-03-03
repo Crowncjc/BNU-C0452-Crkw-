@@ -22,6 +22,7 @@ namespace ConsoleAppProject.App01
         {
             OutputHeading();
             InputMiles();
+            CalculateFeet();
   
         }
         
@@ -30,7 +31,8 @@ namespace ConsoleAppProject.App01
         {
             Console.WriteLine();
             Console.WriteLine(" =====================================================");
-            Console.WriteLine("    Distance Converter Application  by Crown Caesar   ");
+            Console.WriteLine("            Distance Converter Application            ");
+            Console.WriteLine("            by Crown Caesar                           ");
             Console.WriteLine(" =====================================================");
             Console.WriteLine();
         }
@@ -42,7 +44,11 @@ namespace ConsoleAppProject.App01
             miles = Convert.ToDouble(value);
         }
 
-        
+        private void CalculateFeet()
+        {
+
+        }
+                
     }
 }
 
