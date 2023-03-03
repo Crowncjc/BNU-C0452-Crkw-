@@ -61,6 +61,10 @@ namespace ConsoleAppProject.App01
             CalculateMeters5();
             OutputMeters5();
             Console.WriteLine();
+
+            InputFeet6();
+            CalculateMeters6();
+            OutputMeters6();
         }
         
 
@@ -144,7 +148,7 @@ namespace ConsoleAppProject.App01
 
         private void CalculateMiles4()
         {
-            miles = meters / METER_IN_MILE;
+            miles = meters * METER_IN_MILE;
         }
 
         private void OutputMiles4()
@@ -190,7 +194,7 @@ namespace ConsoleAppProject.App01
         private void OutputMeters6()
 
         {
-            Console.WriteLine(feet + "Feet is" + meters + "Meters.");
+            Console.WriteLine(feet + " Feet is " + meters + " Meters!");
         }
     }
 }
