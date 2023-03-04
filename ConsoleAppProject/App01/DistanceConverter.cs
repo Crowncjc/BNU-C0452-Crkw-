@@ -26,7 +26,7 @@ namespace ConsoleAppProject.App01
 
             miles = InputDistance("Please enter the the number of Miles > ");
             CalculateFeet1();
-            OutputFeet1();
+            OutputDistance(miles, nameof(miles), feet, nameof(feet));
             Console.WriteLine();
 
 
@@ -36,7 +36,7 @@ namespace ConsoleAppProject.App01
 
             meters = InputDistance("Please enter the the number of Meters > ");
             CalculateFeet2();
-            OutputFeet2();
+            OutputDistance(meters, nameof(meters), feet, nameof(feet));
             Console.WriteLine();
 
 
@@ -46,7 +46,7 @@ namespace ConsoleAppProject.App01
 
             feet = InputDistance("Please enter the the number of Feet > ");
             CalculateMiles3();
-            OutputMiles3();
+            OutputDistance(feet, nameof(feet), miles, nameof(miles));
             Console.WriteLine();
 
 
@@ -56,7 +56,7 @@ namespace ConsoleAppProject.App01
 
             meters = InputDistance("Please enter the the number of Meters > ");
             CalculateMiles4();
-            OutputMiles4();
+            OutputDistance(meters, nameof(meters), miles, nameof(miles));
             Console.WriteLine();
 
 
@@ -66,7 +66,7 @@ namespace ConsoleAppProject.App01
 
             miles = InputDistance("Please enter the the number of Miles > ");
             CalculateMeters5();
-            OutputMeters5();
+            OutputDistance(miles, nameof(miles), meters, nameof(meters));
             Console.WriteLine();
 
 
@@ -76,7 +76,8 @@ namespace ConsoleAppProject.App01
 
             feet = InputDistance("Please enter the the number of Feet > ");
             CalculateMeters6();
-            OutputMeters6();
+            OutputDistance(feet, nameof(feet), meters, nameof(meters));
+            
         }
         
 
@@ -100,30 +101,26 @@ namespace ConsoleAppProject.App01
             return Convert.ToDouble(value);
         }
 
+        private void OutputDistance(
+            double fromDistance, string fromUnit,
+            double toDistance, string toUnit)
+        {
+            Console.WriteLine($" {fromDistance}  {fromUnit}" +
+                $" is {toDistance} {toUnit}!");
+        }
+
         ///////////Miles to Feet///////
 
         private void CalculateFeet1()
         {
             feet = miles * 5280;
         }
-
-        private void OutputFeet1()
-        {
-            Console.WriteLine(miles + " miles is " + feet + " feet!");
-        }
-
         ///////////Meters to Feet///////
 
         
         private void CalculateFeet2()
         {
             feet = meters * METER_IN_FEET;
-        }
-
-        private void OutputFeet2()
-
-        {
-            Console.WriteLine(meters + " meters is " + feet + " feet!");
         }
 
         ///////////Feet to Miles///////
@@ -134,24 +131,12 @@ namespace ConsoleAppProject.App01
             miles = feet / FEET_IN_MILE;
         }
 
-        private void OutputMiles3()
-
-        {
-            Console.WriteLine(feet + " feet is " + miles + " miles!");
-        }
-
         ///////////Meters to Miles///////
 
 
         private void CalculateMiles4()
         {
             miles = meters * METER_IN_MILE;
-        }
-
-        private void OutputMiles4()
-
-        {
-            Console.WriteLine(feet + " meters is " + miles + " miles!");
         }
 
         ///////////Miles to Meters///////
@@ -162,12 +147,6 @@ namespace ConsoleAppProject.App01
             meters = miles / METER_IN_MILE;
         }
 
-        private void OutputMeters5()
-
-        {
-            Console.WriteLine(miles + " miles is " + meters + " meters!");
-        }
-
         ///////////FeettoMeters///////
 
         private void CalculateMeters6()
@@ -175,11 +154,6 @@ namespace ConsoleAppProject.App01
             meters = feet / METER_IN_FEET;
         }
 
-        private void OutputMeters6()
-
-        {
-            Console.WriteLine(feet + " Feet is " + meters + " Meters!");
-        }
     }
 }
 
