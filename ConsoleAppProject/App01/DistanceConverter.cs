@@ -54,6 +54,24 @@ namespace ConsoleAppProject.App01
             {
                 toDistance = fromDistance / FEET_IN_MILE;
             }
+
+            if (fromUnit == MILES && toUnit == METERS)
+            {
+                toDistance = fromDistance * METER_IN_MILE;
+            }
+            else if (fromUnit == METERS && toUnit == MILES)
+            {
+                toDistance = fromDistance / METER_IN_MILE;
+            }
+
+            if (fromUnit == FEET && toUnit == METERS)
+            {
+                toDistance = fromDistance / METER_IN_FEET;
+            }
+            else if (fromUnit == METERS && toUnit == FEET)
+            {
+                toDistance = fromDistance * METER_IN_FEET;
+            }
         }
 
         private string SelectUnit(String prompt)
