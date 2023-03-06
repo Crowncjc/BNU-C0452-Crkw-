@@ -32,7 +32,8 @@ namespace ConsoleAppProject
 
             Console.WriteLine();
             Console.WriteLine(" =================================================");
-            Console.WriteLine("                  BMI Calculator             ");
+            Console.WriteLine("                  BMI Calculator by            ");
+            Console.WriteLine("                  Crown Caesar             ");
             Console.WriteLine(" =================================================");
             Console.WriteLine();
 
