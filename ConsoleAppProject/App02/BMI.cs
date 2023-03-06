@@ -3,10 +3,12 @@
 namespace ConsoleAppProject.App02
 {
     /// <summary>
-    /// Please describe the main features of this App
+    /// This App designed to help individuals track their
+    /// weight and determine whether their weight falls
+    /// within a healthy range according to their height.
     /// </summary>
     /// <author>
-    /// Student Name version 0.1
+    /// Crown Caesar version 0.1
     /// </author 
 
     public class BmiCalculator
@@ -29,15 +31,16 @@ namespace ConsoleAppProject.App02
 
             double BMI = weight / (height * height);
             Console.WriteLine($"Your BMI is {BMI}");
+            Console.WriteLine();
 
             if (BMI < 18.5)
-                Console.WriteLine($"Your BMI of {BMI} is deemed as underweight, {username}.");
+                Console.WriteLine($"Your BMI of {BMI} indicates that you are underweight, {username}.");
             else if (BMI >= 18.5 && BMI <= 24.9)
-                Console.WriteLine($"Your BMI of {BMI} is a healthy weight and normal - Keep at your lifestyle, {username}.");
+                Console.WriteLine($"Your BMI of {BMI} indicates that you are at healthy weight, {username}.");
             else if (BMI >= 25 && BMI <= 29.9)
-                Console.WriteLine($"Your BMI of {BMI} is classified as overwiehgt, {username}.");
+                Console.WriteLine($"Your BMI of {BMI} indicates that you are overwiehgt, {username}.");
             else
-                Console.WriteLine($"Your BMI f {BMI} is considered obese, {username}.");
+                Console.WriteLine($"Your BMI f {BMI} indicates that you are obese, {username}.");
         }
 
     }
