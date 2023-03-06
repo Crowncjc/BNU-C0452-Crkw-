@@ -1,4 +1,5 @@
 ﻿using ConsoleAppProject.App01;
+using ConsoleAppProject.App02;
 using ConsoleAppProject.App03;
 using ConsoleAppProject.Helpers;
 using System;
@@ -11,7 +12,7 @@ namespace ConsoleAppProject
     /// to start App01 to App05 for CO453 CW1
     /// 
     /// This Project has been modified by:
-    /// Derek Peacock 05/02/2022
+    /// Crown Caesar 05/02/2022
     /// </summary>
     public static class Program
     {
@@ -29,7 +30,15 @@ namespace ConsoleAppProject
 
             converter.ConvertDistance();
 
+            Console.WriteLine();
+            Console.WriteLine(" =================================================");
+            Console.WriteLine("                  BMI Calculator             ");
+            Console.WriteLine(" =================================================");
+            Console.WriteLine();
 
+            BmiCalculator calculate = new BmiCalculator();
+
+            calculate.CalculateBMI();
         }
     }
 }
