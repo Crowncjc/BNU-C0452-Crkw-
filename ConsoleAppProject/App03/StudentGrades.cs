@@ -11,13 +11,13 @@ namespace ConsoleAppProject.App03
     /// </summary>
     public class StudentGrades
     {
-
-        public const int lowestF = 0;
-        public const int lowestD = 40;
-        public const int lowestC = 50;
-        public const int lowestB = 60;
-        public const int lowestA = 70;
-        public const int maxMark = 100;
+        // Constants (Grade Boundaries)
+        public const int LowestF = 0;
+        public const int LowestD = 40;
+        public const int LowestC = 50;
+        public const int LowestB = 60;
+        public const int LowestA = 70;
+        public const int MaxMark = 100;
 
         public const int MIN = 0;
         public const int MAX = 100;
@@ -44,9 +44,7 @@ namespace ConsoleAppProject.App03
                10, 20, 30, 40, 50,
                60, 70, 80, 90, 100
             };
-
-            OutputChoices();
-        }
+    }
 
 
         /// <summary>
@@ -55,7 +53,18 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void InputMarks()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(" Please enter a Mark for each Student");
+            Console.WriteLine(" ------------------------------------");
+
+            int i = 0;
+            foreach (var student in Students)
+            {
+                int mark = (int)ConsoleHelper.InputNumber(
+                    $" Enter {student}'s Mark > ", MIN, MAX);
+
+                Marks[i] = mark;
+                i++;
+            };
         }
 
         /// <summary>
@@ -73,7 +82,11 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public Grades ConvertToGrade(int mark)
         {
-            throw new NotImplementedException();
+            if (mark >= 0 && mark < LowestD)
+            {
+                return Grades.F;
+            }
+            else return Grades.D;
         }
 
         /// <summary>
