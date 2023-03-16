@@ -12,28 +12,43 @@ namespace ConsoleAppProject.App03
     public class StudentGrades
     {
 
-        public string [] Students { get; set; }
+        public const int lowestF = 0;
+        public const int lowestD = 40;
+        public const int lowestC = 50;
+        public const int lowestB = 60;
+        public const int lowestA = 70;
+        public const int maxMark = 100;
 
+        public const int MIN = 0;
+        public const int MAX = 100;
+        public const int Percentage = 100;
+
+        public string[] Students { get; set; }
         public int[] Marks { get; set; }
-
-        public int[] Gradeprofile { get; set; }
-
+        public int[] GradeProfile { get; set; }
         public double Mean { get; set; }
-
         public int Minimum { get; set; }
-
         public int Maximum { get; set; }
+        public int[] Mark { get; set; }
 
-    public StudentGrades()
+        public StudentGrades()
     {
         Students = new string[]
         {
             "Emily","Ethan","Olivia","Liam","Sophia",
             "Noah","Ava","William","Isabella","Benjamin"
         };
-            Gradeprofile = new int[(int)Grades.A + 1];
-            Marks = new int[Students.Length];         
-    }
+            GradeProfile = new int[(int)Grades.A + 1];
+            Marks = new int[]
+            {
+               10, 20, 30, 40, 50,
+               60, 70, 80, 90, 100
+            };
+
+            OutputChoices();
+        }
+
+
         /// <summary>
         /// 
         /// 
