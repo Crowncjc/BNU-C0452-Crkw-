@@ -40,6 +40,10 @@ namespace ConsoleAppProject
             BmiCalculator calculate = new BmiCalculator();
 
             calculate.CalculateBMI();
+
+            StudentGrades convert = new StudentGrades();
+
+            convert.Run();
         }
     }
 }
