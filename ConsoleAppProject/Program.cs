@@ -26,33 +26,70 @@ namespace ConsoleAppProject
             Console.WriteLine(" =================================================");
             Console.WriteLine();
 
-            DistanceConverter converter = new DistanceConverter();
+            string[] choices =
+            {
+                " App1 Distance Converter",
+                " App2 BMI Calculator",
+                " App3 Student Grades",
+            };
 
-            converter.ConvertDistance();
-
-            Console.WriteLine();
-            Console.WriteLine(" =================================================");
-            Console.WriteLine("                  BMI Calculator by            ");
-            Console.WriteLine("                  Crown Caesar             ");
-            Console.WriteLine(" =================================================");
-            Console.WriteLine();
-
-            BmiCalculator calculate = new BmiCalculator();
-
-            calculate.CalculateBMI();
-
+            Console.WriteLine(" Please Choose which Application You would like to Use");
             Console.WriteLine();
 
-            Console.WriteLine();
-            Console.WriteLine(" =================================================");
-            Console.WriteLine("                  Student Marks by1            ");
-            Console.WriteLine("                  Crown Caesar             ");
-            Console.WriteLine(" =================================================");
-            Console.WriteLine();
+            int choice;
+            do
+            {
 
-            StudentGrades convert = new StudentGrades();
+                choice = ConsoleHelper.SelectChoice(choices);
+                Console.WriteLine();
 
-            convert.Run();
+                switch (choice)
+                {
+                    case 1:
+                        DistanceConverter converter = new DistanceConverter();
+                        converter.ConvertDistance();
+                        break;
+                    case 2:
+                        BmiCalculator calculate = new BmiCalculator();
+                        calculate.CalculateBMI();
+                        break;
+                    case 3:
+                        StudentGrades convert = new StudentGrades();
+                        convert.Run();
+                        break;
+                }
+
+            } while (choice != 3);
+
+            ///DistanceConverter converter = new DistanceConverter();
+
+            ////converter.ConvertDistance();
+
+            ////Console.WriteLine();
+            ////Console.WriteLine(" =================================================");
+            ////Console.WriteLine("                  BMI Calculator by            ");
+            ////Console.WriteLine("                  Crown Caesar             ");
+            ////Console.WriteLine(" =================================================");
+            ////Console.WriteLine();
+
+            ////BmiCalculator calculate = new BmiCalculator();
+
+            ////calculate.CalculateBMI();
+
+            ////Console.WriteLine();
+
+            ////Console.WriteLine();
+            ////Console.WriteLine(" =================================================");
+            ////Console.WriteLine("                  Student Marks by1            ");
+            ////Console.WriteLine("                  Crown Caesar             ");
+            ////Console.WriteLine(" =================================================");
+            ////Console.WriteLine();
+
+            ////StudentGrades convert = new StudentGrades();
+
+            ////convert.Run();///
+
+
         }
     }
 }

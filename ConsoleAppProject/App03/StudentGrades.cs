@@ -213,14 +213,11 @@ namespace ConsoleAppProject.App03
                 GradeProfile[i] = 0;
             }
 
-            foreach (int mark in Marks)
+            foreach(int mark in Marks)
             {
                 Grades grade = ConvertToGrade(mark);
                 GradeProfile[(int)grade]++;
             }
-
-            OutputGradeProfile();
-
         }
 
         private void OutputGradeProfile()
@@ -231,8 +228,8 @@ namespace ConsoleAppProject.App03
             Grades grade = Grades.F;
             foreach (int count in GradeProfile)
             {
-                int percentage = count * Percentage / Marks.Length;
-                Console.WriteLine($" Grade {grade}: Count {count} ({percentage}%)");
+                int percentage = count * 100 / Marks.Length;
+                Console.WriteLine($" Grade {grade} {percentage}% Count {count}");
                 grade++;
             }
 
