@@ -92,6 +92,8 @@ namespace ConsoleAppProject.App03
                 return Grades.B;
             if (mark >= LowestA && mark <= MaxMark)
                 return Grades.A;
+
+            else return Grades.F;
         }
 
         /// <summary>
@@ -117,8 +119,8 @@ namespace ConsoleAppProject.App03
 
             foreach (int mark in Marks)
             {
-                Grades grade = ConvertToGrade(Mark);
-                GradeProfile[(int)grade]++;
+                Grades grade = ConvertToGrade(mark);
+                GradeProfile[(int)grade - 1]++;
             }
         }
     }
