@@ -31,8 +31,8 @@ namespace ConsoleAppProject.App03
         public int Maximum { get; set; }
         public int[] Mark { get; set; }
 
-        
-       public void Run()
+
+        public void Run()
         {
             Students = new string[]
             {
@@ -100,6 +100,8 @@ namespace ConsoleAppProject.App03
 
             } while (choice != 5);
             return choice;
+
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -120,6 +122,7 @@ namespace ConsoleAppProject.App03
                 Marks[i] = mark;
                 i++;
             };
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -134,6 +137,7 @@ namespace ConsoleAppProject.App03
                 Grades grade = ConvertToGrade(mark);
                 Console.WriteLine($" {Students[i]}'s Mark = {mark}, Grade = {grade}");
             }
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -212,7 +216,7 @@ namespace ConsoleAppProject.App03
             foreach (int mark in Marks)
             {
                 Grades grade = ConvertToGrade(mark);
-                GradeProfile[(int)grade - 1]++;
+                GradeProfile[(int)grade]++;
             }
 
             OutputGradeProfile();
@@ -227,12 +231,12 @@ namespace ConsoleAppProject.App03
             Grades grade = Grades.F;
             foreach (int count in GradeProfile)
             {
-                 int percentage = count * Percentage / Marks.Length;
-                 Console.WriteLine($" Grade {grade}: Count {count} ({percentage}%)");
-                 grade++;
-                }
-
-                Console.WriteLine();
+                int percentage = count * Percentage / Marks.Length;
+                Console.WriteLine($" Grade {grade}: Count {count} ({percentage}%)");
+                grade++;
             }
+
+            Console.WriteLine();
         }
+    }
 }
