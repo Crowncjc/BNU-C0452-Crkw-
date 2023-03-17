@@ -91,7 +91,7 @@ namespace ConsoleAppProject.App03
                         CalculateStats();
                         break;
                     case 4:
-                        CalculateGradeProfile();
+                        OutputGradeProfile();
                         break;
 
                     default:
@@ -197,7 +197,7 @@ namespace ConsoleAppProject.App03
 
         private void OutputStat()
         {
-            Console.WriteLine(" The Grade Stat is ...");
+            Console.WriteLine(" Grade Statistics");
             Console.WriteLine(" ----------------");
             Console.WriteLine($" Minimum Mark is {Minimum}");
             Console.WriteLine($" Maximum Mark is {Maximum}");
