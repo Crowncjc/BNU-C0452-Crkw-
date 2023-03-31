@@ -79,6 +79,21 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        public void AddComment(int id, string comment)
+        {
+            Post post = FindPost(id);
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with ID number {id} doesn not exist");
+            }
+            else
+            {
+                Console.WriteLine($"\nComment added to post ID {id}");
+                post.AddComment(comment);
+
+            }
+        }
+
         /// <summary>
         /// use a specific post ID to locate a post
         /// </summary>

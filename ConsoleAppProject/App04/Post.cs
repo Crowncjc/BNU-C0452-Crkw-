@@ -98,8 +98,22 @@ namespace ConsoleAppProject.App04
             }
             else
             {
-                Console.WriteLine($"    {comments.Count}  comment(s). Click here to view.");
-                Console.WriteLine("    ");
+                DisplayComments();
+            }
+        }
+
+        /// <summary>
+        /// Display comments as a seperate method
+        /// 
+        /// </summary>
+        public void DisplayComments()
+        {
+            int commentNumber = 0;
+            Console.WriteLine($"    {comments.Count}  comment(s)");
+            foreach (string comment in comments)
+            {
+                commentNumber++;
+                Console.WriteLine($"    Comment: {commentNumber}    {comment}\n");
             }
         }
 

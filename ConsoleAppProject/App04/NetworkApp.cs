@@ -18,7 +18,7 @@ namespace ConsoleAppProject.App04
 			string[] choices = new string[]
 			{
 				"Post Message", "Post Image", "" +
-				"DisplayMenu All Posts", "Remove Post", "Quit"
+				"Display All Posts", "Remove Post", "Add a Comment", "Quit"
             };
 
 			bool wantToQuit = false;
@@ -33,7 +33,8 @@ namespace ConsoleAppProject.App04
 					case 2: PostImage(); break;
 					case 3: DisplayAll(); break;
 					case 4: RemovePost(); break;
-					case 5: wantToQuit = true; break;
+                    case 5: AddComment(); break;
+                    case 6: wantToQuit = true; break;
 				}
 
 			} while (!wantToQuit);
@@ -123,6 +124,16 @@ namespace ConsoleAppProject.App04
             Console.WriteLine("");
 
             news.RemovePost(id);
+        }
+
+        private void AddComment()
+        {
+            ConsoleHelper.OutputTitle($"Add Comment");
+            int id = (int)ConsoleHelper.InputNumber("    # Please enter the post ID to add a comment: ", 1, Post.GetNumberOfPosts());
+
+            Console.Write("    # Please enter your comment: ");
+            string comment = Console.ReadLine();
+            news.AddComment(id, comment);
         }
 
         private void PostSuccessMessage()
