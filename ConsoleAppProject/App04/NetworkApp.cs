@@ -18,7 +18,7 @@ namespace ConsoleAppProject.App04
 			string[] choices = new string[]
 			{
 				"Post Message", "Post Image", "" +
-				"Display All Posts", "Remove Post", "Add a Comment", "Quit"
+				"Display All Posts", "Remove Post", "Add a Comment", "Like or Unlike Post", "DisplayByAuthor", "Quit"
             };
 
 			bool wantToQuit = false;
@@ -34,7 +34,9 @@ namespace ConsoleAppProject.App04
 					case 3: DisplayAll(); break;
 					case 4: RemovePost(); break;
                     case 5: AddComment(); break;
-                    case 6: wantToQuit = true; break;
+                    case 6: LikeOrUnlikeaPost(); break;
+                    case 7: DisplayByAuthor(); break;
+                    case 8: wantToQuit = true; break;
 				}
 
 			} while (!wantToQuit);
@@ -110,8 +112,10 @@ namespace ConsoleAppProject.App04
 
         private void DisplayByAuthor()
         {
-			throw new NotImplementedException();
-
+			Console.WriteLine("Enter the Authors Name > ");
+			string author = Console.ReadLine();
+			news.DisplayByAuthor(author);
+			Console.WriteLine("");
         }
 
         private void RemovePost()
@@ -134,6 +138,26 @@ namespace ConsoleAppProject.App04
             Console.Write("    # Please enter your comment: ");
             string comment = Console.ReadLine();
             news.AddComment(id, comment);
+        }
+
+        private void LikeOrUnlikeaPost()
+        {
+            ConsoleHelper.OutputTitle($"Like or Unlike a Post");
+
+            Console.Write("    # Would you like to (1) Like or (2) Unlike a post?: ");
+            string likeOrUnlike = Console.ReadLine();
+
+            if (likeOrUnlike == "1")
+            {
+                int id = (int)ConsoleHelper.InputNumber("    # Please enter the post ID to add a like: ", 1, Post.GetNumberOfPosts());
+                news.AddLike(id);
+            }
+            else if (likeOrUnlike == "2")
+            {
+                int id = (int)ConsoleHelper.InputNumber("    # Please enter the post ID to add a unlike: ", 1, Post.GetNumberOfPosts());
+                news.UnlikePost(id);
+            }
+
         }
 
         private void PostSuccessMessage()

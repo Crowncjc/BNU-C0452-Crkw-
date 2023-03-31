@@ -94,6 +94,57 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        public void AddLike(int id)
+        {
+            Post post = FindPost(id);
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with ID number {id} doesn not exist");
+            }
+            else
+            {
+                Console.WriteLine($"\nLike added to post ID {id}");
+            }
+            post.Like();
+        }
+
+        public void UnlikePost(int id)
+        {
+            Post post = FindPost(id);
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with ID number {id} doesn not exist");
+            }
+            else
+            {
+                Console.WriteLine($"\nUnliked post ID {id}");
+            }
+            post.Unlike();
+        }
+
+        /// <summary>
+        /// Displays all the text by specific user
+        /// </summary>
+        public void DisplayByAuthor(string author)
+        {
+            int count = 0;
+            // display all text posts
+            foreach (Post post in posts)
+            {
+                if (post.Username == author)
+                {
+                    count++;
+                    post.Display();
+                    Console.WriteLine();
+                }
+
+            }
+            if (count == 0)
+            {
+                Console.WriteLine("No posts by this user");
+            }
+        }
+
         /// <summary>
         /// use a specific post ID to locate a post
         /// </summary>
