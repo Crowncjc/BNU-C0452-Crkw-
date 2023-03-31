@@ -5,4 +5,7 @@
     <TargetFramework>netcoreapp7.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\MevsMyself.png" />
+  </ItemGroup>
 </Project>

@@ -5,13 +5,16 @@ namespace ConsoleAppProject.App04
 {
 	public class Post
 	{
+        public int PostID { get; }
+
         private int likes;
 
         private readonly List<String> comments;
 
-
         // username of the post's author
         public String Username { get; }
+
+        private static int instances = 0;
 
         public DateTime Timestamp { get; }
 
@@ -20,11 +23,20 @@ namespace ConsoleAppProject.App04
         /// </summary>
         public Post(string author)
         {
+            instances++;
+            PostID = instances;
+
             this.Username = author;
             Timestamp = DateTime.Now;
 
             likes = 0;
             comments = new List<String>();
+        }
+
+        // Get number of posts
+        public static int GetNumberOfPosts()
+        {
+            return instances;
         }
 
         /// <summary>
@@ -63,7 +75,7 @@ namespace ConsoleAppProject.App04
         /// (Currently: Print to the text terminal. This is simulating display 
         /// in a web browser for now.)
         ///</summary>
-        public void Display()
+        public virtual void Display()
         {
             Console.WriteLine();
             Console.WriteLine($"    Author: {Username}");
@@ -82,12 +94,16 @@ namespace ConsoleAppProject.App04
             if (comments.Count == 0)
             {
                 Console.WriteLine("    No comments.");
+                Console.WriteLine("    ");
             }
             else
             {
                 Console.WriteLine($"    {comments.Count}  comment(s). Click here to view.");
+                Console.WriteLine("    ");
             }
         }
+
+
 
         ///<summary>
         /// Create a string describing a time point in the past in terms 

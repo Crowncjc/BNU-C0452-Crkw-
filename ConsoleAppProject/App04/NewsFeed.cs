@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using ConsoleAppProject;
+
 
 
 namespace ConsoleAppProject.App04
@@ -20,6 +22,8 @@ namespace ConsoleAppProject.App04
     ///</author> 
     public class NewsFeed
     {
+        public const string AUTHOR = "Crown";
+
         private readonly List<Post> posts;
 
         ///<summary>
@@ -28,6 +32,13 @@ namespace ConsoleAppProject.App04
         public NewsFeed()
         {
             posts = new List<Post>();
+
+            MessagePost post = new MessagePost(AUTHOR, "This is one of A Boogies best Albums!");
+            AddMessagePost(post);
+
+            PhotoPost photopost = new PhotoPost(AUTHOR, "mevsmyself.jpg", "Album = Me vs Myself");
+            AddPhotoPost(photopost);
+
         }
 
 
@@ -49,6 +60,38 @@ namespace ConsoleAppProject.App04
         public void AddPhotoPost(PhotoPost photo)
         {
             posts.Add(photo);
+        }
+
+        public void RemovePost(int id)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with ID number {id} doesn not exist");
+            }
+            else
+            {
+                Console.WriteLine($"\nPost ID {id} has been sucessfully removed");
+
+                posts.Remove(post);
+                post.Display();
+            }
+        }
+
+        /// <summary>
+        /// use a specific post ID to locate a post
+        /// </summary>
+        public Post FindPost(int id)
+        {
+            foreach (Post post in posts)
+            {
+                if (post.PostID == id)
+                {
+                    return post;
+                }
+            }
+            return null;
         }
 
         ///<summary>
